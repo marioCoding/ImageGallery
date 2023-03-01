@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./styles/style.css" rel="stylesheet">
+  <title>ARTDM 174 | Lab 4: Image Gallery</title>
+</head>
+<header>
+  <h1>Manga Gallery</h1>
+</header>
+<body>
+  <main>
+    <h2>Click through the gallery to see some cool manga =)</h2>
+    <figure class="frame">
+      <img src="./images/blame.png" class="slide current" alt="">
+      <img src="./images/demonSlayer.png" class="slide" alt="">
+      <img src="./images/spyXfamily.png" class="slide" alt="">
+      <img src="./images/DBZ.png" class="slide" alt="">
+      <img src="./images/onePunchMan.png" class="slide" alt="">
+      <figcaption class="caption"></figcaption>
+    </figure>
+    <!--Create a wrapper to create a flexbox for the wrapper's child node-->
+    <div class="controls">
+      <a href="#" class="back-btn">Prev</a>
+      <a href="#" class="next-btn">Next</a>
+    </div>
+  </main>
+  <script src="./scripts/main.js"></script>
+</body>
+</html>

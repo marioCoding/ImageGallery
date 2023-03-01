@@ -1,0 +1,127 @@
+/*
+// Set the caption for the first slide
+caption.innerHTML = captions[0];
+*/
+
+/*
+set_attributes(0);
+// Change the image with the correct array data
+function set_attributes(i) {
+  // Change the attributes of the <img> tags 
+  for(let j = 0; j < captions.length; j++) {
+    slides[j].setAttribute("alt", captions[i]);
+    slides[j].setAttribute("src", imageLocations[i]);
+  }
+}
+*/
+
+
+// Below is work in progress: IGNORE
+/*
+function change_image(e) {
+  // Deactivate current image
+  slides[0].classList.toggle("hide");
+
+  // Add transition
+  slides[0].classList.add("current");
+
+  // Activate next image
+  slides[1].classList.toggle("hide");
+
+  // Add transition
+  slides[1].classList.toggle("current");
+
+  // Change caption text
+  caption.innerHTML = slides[0].alt;
+}
+
+// Change current image to the next image
+function next_image() {
+  i = get_current_image_index();
+  // Prepare the next image 
+  if (i + 1 > 5) {
+    set_attributes(0);
+  } else {
+    set_attributes(i + 1);
+  }
+}
+
+// Change current image to the prev image
+function prev_image() {
+  i = get_current_image_index;
+  // Prepare the prev image
+  if (i - 1 < 0) {
+    set_attributes(captions.length - 1);
+  } else {
+    set_attributes(i - 1);
+  }
+  change_image();
+}
+*/
+
+
+// Find the index that represents the current image
+function get_current_image_index() {
+  for (let i = 0; i < captions.length; i++) {
+    if(slides[0].alt == captions[i]) {
+      return i;
+    }
+  }
+}
+
+
+// Create shortcut variables
+const btnNext = document.querySelector(".nextButton");
+const btnPrev = document.querySelector(".prevButton");
+const frame = document.querySelector(".frame");
+const slides = frame.querySelectorAll("img");
+
+// With JS active, hide all images
+slides.forEach((slide) => {
+  slide.classList.add("hide");
+});
+
+// Show the first slide
+slides[0].classList.remove("hide");
+
+// Add function to buttons
+btnPrev.addEventListener('click', changeSlide);
+btnNext.addEventListener('click', changeSlide);
+
+function changeSlide(e) {
+  // stop link from trying to reload page
+  e.preventDefault();
+  
+  //shortcut vars
+  const frame = document.querySelector(".frame");
+  const slides = frame.querySelectorAll("img");
+  let showing = document.querySelector(".current");
+  let nextUp = "";
+
+  if(e.target.className == 'nextButton') {
+    nextUp = showing.nextElementSibling;
+  }
+
+  if(e.target.className == 'backButton') {
+    nextUp = showing.previousElementSibling;
+  }
+  
+  // deactivate current image
+  showing.classList.toggle("hide");
+  showing.classList.toggle("current");
+  
+  //make sure next image is there
+  if (!nextUp) {
+    nextUp = slides[slides.length - 1];
+  }
+
+  if (nextUp.nodeName !== "IMG") {
+    nextUp = slides[0];
+  }
+
+  // activate next image
+  nextUp.classList.toggle("hide");
+  nextUp.classList.toggle("current");
+}
+
+
