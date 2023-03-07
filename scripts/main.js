@@ -8,7 +8,7 @@ function init() {
     "Demon Slayer: Kimetsu no Yaiba 鬼滅の刃, is a Japanese manga series written and illustrated by Koyoharu Gotouge.",
     "Spy × Family is a Japanese manga series written and illustrated by Tatsuya Endo.",
     "Dragon Ball Z is the English title for the last two thirds of the Dragon Ball manga, which was written and illustrated by Akira Toriyama.",
-    ""  
+    "One-Punch Man is a Japanese superhero manga series created by One."  
   ]
 
   //create shortcut vars
@@ -16,6 +16,7 @@ function init() {
   const next_btn = document.querySelector(".next-btn");
   const frame = document.querySelector(".frame");
   const slides = frame.querySelectorAll("img");
+  const caption = document.querySelector(".caption");
 
   //with JS active, hide all images
   slides.forEach((slide) => {
@@ -63,4 +64,16 @@ function changeSlide(e) {
   // activate next image
   nextUp.classList.toggle("hide");
   nextUp.classList.toggle("current");
+  
+  // grab the alt text from current image
+  let altText = nextUp.getAttribute('alt');
+  console.log(altText);
+
+  // change the figcaption to the alt text;
+  caption.innerHTML = altText;
 }
+
+// Consider this: a different way to cylce through captions
+// create a function to changeAlbum(albumName)
+// function changeAlbum(albumName) {  
+// }
