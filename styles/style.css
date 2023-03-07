@@ -20,7 +20,7 @@ h1 {
   color:  #fff;
 }
 
-/* Main */
+/* Images */
 h2 {
   height: 75px;
   line-height: 75px;
@@ -38,15 +38,25 @@ img {
 .hide {
   display: none;
 }
-
 .current {
   transition: opacity .5s ease-out;
 }
 
-.spacer {
-  padding: 2rem;
+/* Captions */
+.caption {
+  font-family: 'Lora', serif;
+  position: absolute;
+  z-index: 3;
+  color: #fff;
+  background: rgba(0, 0, 0, .7);
+  bottom: 0;
+  width: 100%;
+  height: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
 }
 
+
+/* Buttons */
 .back-btn, .next-btn {
   text-decoration: none;
   background-color:  lightgrey;
