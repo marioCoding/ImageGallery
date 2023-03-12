@@ -26,13 +26,6 @@ function changeSlide(e) {
   e.preventDefault();
   
   // define figcaptions for each slide 
-  const captions = [
-    "Blame! (stylized as BLAME!) is a Japanese science fiction manga series written and illustrated by Tsutomu Nihei",
-    "Demon Slayer: Kimetsu no Yaiba 鬼滅の刃, is a Japanese manga series written and illustrated by Koyoharu Gotouge.",
-    "Spy × Family is a Japanese manga series written and illustrated by Tatsuya Endo.",
-    "Dragon Ball Z is the English title for the last two thirds of the Dragon Ball manga, which was written and illustrated by Akira Toriyama.",
-    "One-Punch Man is a Japanese superhero manga series created by One."  
-  ]
 
   //shortcut vars
   const caption = document.querySelector(".caption");
@@ -67,19 +60,10 @@ function changeSlide(e) {
   nextUp.classList.toggle("current");
   
   // grab the alt text from current image
-  let imgInfo = captions[0];
+  
   let altText = nextUp.getAttribute('alt');
   console.log(altText);
   
   // change the figcaption to the alt text;
-  for (let i = 0; i < captions.length(); i++) {
-    if (nextUp)
-      caption.innerHTML = imgInfo;
-  }
-
+  caption.innerHTML = altText;
 }
-
-// Consider this: a different way to cylce through captions
-// create a function to changeAlbum(albumName)
-// function changeAlbum(albumName) {  
-// }
